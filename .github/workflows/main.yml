@@ -1,0 +1,58 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1.8.1
+        with:
+         dotnet-version: '5.0.x'
+      
+      - name: Setup MAUI
+        shell: pwsh
+        run: |
+          & npm i appium
+
+      - name: Setup MAUI
+        shell: pwsh
+        run: |
+          & dotnet tool update --global redth.net.maui.check
+          & maui-check --preview --ci --non-interactive --fix --skip xcode --skip vswin --skip vsmac --skip edgewebview2
+           
+      - name: Setup Android SDK and Emulator
+        shell: pwsh
+        run: |
+          & dotnet tool install -g androidsdk.tool           
+          & android sdk install --package "build-tools;28.0.3" --package "build-tools;29.0.2" --package "build-tools;30.0.3" --package "build-tools;31.0.0" --package "cmdline-tools;3.0" --package "emulator" --package "platform-tools" --package "platforms-android-30" --package "platforms-android-31" --package "system-images;android-31;google_apis;x86_64"
+          & android avd create --name XappiumTestEmu --sdk "system-images;android-31;google_apis;x86_64" --device pixel
+          & android avd start --name XappiumTestEmu --wait-boot
+
+      - name: Build and Test
+        shell: pwsh
+        run: |
+          & dotnet build ./MauiUITestApp/MauiUITestApp.csproj --target=SignApk
+          & dotnet build ./UITests/UITests.csproj
+          & dotnet test ./UITests/UITests.csproj
+
