@@ -1,6 +1,6 @@
 {
 	"platform": "Android",
-	"appPath": "../../../../MauiUITestApp/MauiUITestApp/bin/Debug/net6.0-android/com.companyname.mauitestapp-Signed.apk",
+	"appPath": "/Users/runner/work/Xappium.Maui.Playground/MauiUITestApp/MauiUITestApp/bin/Debug/net6.0-android/com.companyname.mauitestapp-Signed.apk",
 	"appId": "com.companyname.mauitestapp",
 	"deviceName": "XappiumTestEmu",
 	"settings": {
