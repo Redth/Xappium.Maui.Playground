@@ -1,0 +1,16 @@
+{
+	"platform": "Android",
+	"appPath": "C:\\Users\\jondi\\source\\repos\\MauiUITestApp\\MauiUITestApp\\bin\\Debug\\net6.0-android\\com.companyname.mauitestapp-Signed.apk",
+	"appId": "com.companyname.mauitestapp",
+	"deviceName": "Pixel 5 API 30",
+	"udid": "emulator-5556",
+	"settings": {
+		"name": "Jon"
+	},
+	"capabilities": {
+		"espressoBuildConfig": "{ \"additionalAndroidTestDependencies\": [ \"androidx.lifecycle:lifecycle-common:2.2.0\" ], \"additionalAppDependencies\": [ \"androidx.lifecycle:lifecycle-common:2.2.0\" ] }",
+		"showGradleLog": "true",
+		"fullReset": "true",
+		"forceEspressoRebuild": "true"
+	}
+}
