@@ -35,7 +35,6 @@ jobs:
           echo $ANDROID_HOME
           ls -al $ANDROID_HOME/tools/
           rm $ANDROID_HOME/tools/android
-          tree $ANDROID_HOME
           
       - name: Setup Android SDK and Emulator
         shell: pwsh
