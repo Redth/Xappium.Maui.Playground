@@ -52,7 +52,7 @@ jobs:
       - name: Build and Test
         shell: pwsh
         run: |
-          & dotnet build ./MauiUITestApp/MauiUITestApp.csproj --target=SignApk
+          & dotnet build ./MauiUITestApp/MauiUITestApp.csproj
           & dotnet build ./UITests/UITests.csproj
           & dotnet test ./UITests/UITests.csproj
 
