@@ -54,7 +54,7 @@ jobs:
       - name: Build and Test
         shell: pwsh
         run: |
-          & dotnet build ./MauiUITestApp/MauiUITestApp.csproj -p:PublishTrimmed=false
+          & dotnet build -f net6.0-android ./MauiUITestApp/MauiUITestApp.csproj -p:PublishTrimmed=false
           & dotnet build ./UITests/UITests.csproj
           & dotnet test ./UITests/UITests.csproj
 
