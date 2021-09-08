@@ -33,9 +33,9 @@ jobs:
       - name: Setup Appium
         shell: pwsh
         run: |
-          & npm i appium
+          & npm install -g appium
           & appium -v
-          & appium &
+          appium &
 
       - name: Setup MAUI
         shell: pwsh
