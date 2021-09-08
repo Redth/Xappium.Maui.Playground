@@ -31,9 +31,15 @@ jobs:
          dotnet-version: '5.0.x'
 
       - name: Setup Android SDK and Emulator
+        run: |
+          echo $ANDROID_HOME
+          ls -al $ANDROID_HOME/tools/
+          rm $ANDROID_HOME/tools/android
+          tree $ANDROID_HOME
+          
+      - name: Setup Android SDK and Emulator
         shell: pwsh
         run: |
-          rm -rf "$env:ANDROID_HOME/tools/android*"
           & dotnet tool install -g androidsdk.tool           
           & android sdk install --package "build-tools;28.0.3" --package "build-tools;29.0.2" --package "build-tools;30.0.3" --package "build-tools;31.0.0" --package "cmdline-tools;3.0" --package "emulator" --package "platform-tools" --package "platforms-android-30" --package "platforms-android-31" --package "system-images;android-31;google_apis;x86_64"
           & android avd create --name XappiumTestEmu --sdk "system-images;android-31;google_apis;x86_64" --device pixel
