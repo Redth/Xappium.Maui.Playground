@@ -30,7 +30,7 @@ jobs:
         with:
          dotnet-version: '5.0.x'
       
-      - name: Setup MAUI
+      - name: Setup Appium
         shell: pwsh
         run: |
           & npm i appium
