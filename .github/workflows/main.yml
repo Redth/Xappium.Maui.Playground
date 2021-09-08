@@ -35,7 +35,7 @@ jobs:
         run: |
           & npm install -g appium
           & appium -v
-          appium &
+          appium --address "127.0.0.1" &
 
       - name: Setup MAUI
         shell: pwsh
