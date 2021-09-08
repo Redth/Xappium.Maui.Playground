@@ -29,13 +29,12 @@ jobs:
         uses: actions/setup-dotnet@v1.8.1
         with:
          dotnet-version: '5.0.x'
-      
+
       - name: Setup Appium
         shell: pwsh
         run: |
           & npm install -g appium
           & appium -v
-          appium --address "127.0.0.1" &
 
       - name: Setup MAUI
         shell: pwsh
@@ -54,6 +53,10 @@ jobs:
       - name: Build and Test
         shell: pwsh
         run: |
+          & npm install -g appium
+          & appium -v
+          appium --address "127.0.0.1" &
+
           & dotnet build -f net6.0-android ./MauiUITestApp/MauiUITestApp.csproj -p:PublishTrimmed=false
           & dotnet build ./UITests/UITests.csproj
           & dotnet test ./UITests/UITests.csproj
