@@ -11,6 +11,6 @@
 		"showGradleLog": "true",
 		"fullReset": "true",
 		"forceEspressoRebuild": "true",
-		"avd": "XappiumTestEmu"
+		"isHeadless": "true"
 	}
 }
