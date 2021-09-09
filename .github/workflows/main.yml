@@ -71,5 +71,7 @@ jobs:
 
           & dotnet build -f net6.0-android ./MauiUITestApp/MauiUITestApp.csproj -p:PublishTrimmed=false
           & dotnet build ./UITests/UITests.csproj
+          
+          & android avd list
           & dotnet test ./UITests/UITests.csproj
 
