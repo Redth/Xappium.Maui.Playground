@@ -12,6 +12,6 @@
 		"fullReset": "true",
 		"forceEspressoRebuild": "true",
 		"isHeadless": "true",
-		"avd": "XappiumTestEmu"
+		"avd": "Android_Emulator_31"
 	}
 }
