@@ -2,7 +2,7 @@
 	"platform": "Android",
 	"appPath": "/Users/runner/work/Xappium.Maui.Playground/Xappium.Maui.Playground/MauiUITestApp/bin/Debug/net6.0-android/com.companyname.mauitestapp-Signed.apk",
 	"appId": "com.companyname.mauitestapp",
-	"deviceName": "XappiumTestEmu",
+	"deviceName": "Android Emulator",
 	"settings": {
 		"name": "Jon"
 	},
@@ -10,6 +10,7 @@
 		"espressoBuildConfig": "{ \"additionalAndroidTestDependencies\": [ \"androidx.lifecycle:lifecycle-common:2.2.0\" ], \"additionalAppDependencies\": [ \"androidx.lifecycle:lifecycle-common:2.2.0\" ] }",
 		"showGradleLog": "true",
 		"fullReset": "true",
-		"forceEspressoRebuild": "true"
+		"forceEspressoRebuild": "true",
+		"avd": "XappiumTestEmu"
 	}
 }
