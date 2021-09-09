@@ -73,5 +73,7 @@ jobs:
           & dotnet build ./UITests/UITests.csproj
           
           & android avd list
+          & android avd start --name XappiumTestEmu --wait-boot
+          & android device list
           & dotnet test ./UITests/UITests.csproj
 
